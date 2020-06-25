@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import { IconButton } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import { defineMessages } from 'react-intl';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -174,28 +176,33 @@ class UserParticipants extends Component {
             ? (
               <div className={styles.container}>
                 <h2 className={styles.smallTitle}>
-                  {intl.formatMessage(intlMessages.usersTitle)}
+                  Participants
+                  {/* {intl.formatMessage(intlMessages.usersTitle)}
                   &nbsp;(
                   {users.length}
-                  )
+                  ) */}
                 </h2>
                 {currentUser.role === ROLE_MODERATOR
                   ? (
-                    <UserOptionsContainer {...{
+                    <UserOptionsContainer   {...{
                       users,
                       setEmojiStatus,
                       meetingIsBreakout,
                     }}
                     />
+
                   ) : null
                 }
-
+                <div className={styles.panelCloseIcon}>
+                  <IconButton onClick={() => { Session.set('openPanel', ''); }}>
+                    <CloseIcon />
+                  </IconButton>
+                </div>
               </div>
             )
             : <hr className={styles.separator} />
         }
-        <div
-          className={styles.scrollableList}
+        <div 
           tabIndex={0}
           ref={(ref) => { this.refScrollContainer = ref; }}
         >

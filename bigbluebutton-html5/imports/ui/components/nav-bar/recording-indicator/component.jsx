@@ -169,7 +169,7 @@ class RecordingIndicator extends PureComponent {
       >
         {recordingIndicatorIcon}
 
-        <div className={styles.presentationTitle}>
+        {/* <div className={styles.presentationTitle}>
           {recording
             ? (
               <span className={styles.visuallyHidden}>
@@ -179,7 +179,7 @@ class RecordingIndicator extends PureComponent {
           }
           {recording
             ? <span aria-hidden>{humanizeSeconds(time)}</span> : <span>{recordTitle}</span>}
-        </div>
+        </div> */}
       </div>
     );
 
@@ -193,9 +193,9 @@ class RecordingIndicator extends PureComponent {
 
     return (
       <Fragment>
-        {record
+        {/* {record
           ? <span className={styles.presentationTitleSeparator} aria-hidden>|</span>
-          : null}
+          : null} */}
         <div className={styles.recordingIndicator}>
           {showButton
             ? recordingButton

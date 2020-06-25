@@ -209,19 +209,19 @@ class SettingsDropdown extends PureComponent {
       allowLogout: allowLogoutSetting,
     } = Meteor.settings.public.app;
 
-    const logoutOption = (
-      <DropdownListItem
-        key="list-item-logout"
-        icon="logout"
-        label={intl.formatMessage(intlMessages.leaveSessionLabel)}
-        description={intl.formatMessage(intlMessages.leaveSessionDesc)}
-        onClick={() => this.leaveSession()}
-      />
-    );
+    // const logoutOption = (
+    //   <DropdownListItem
+    //     key="list-item-logout"
+    //     icon="logout"
+    //     label={intl.formatMessage(intlMessages.leaveSessionLabel)}
+    //     description={intl.formatMessage(intlMessages.leaveSessionDesc)}
+    //     onClick={() => this.leaveSession()}
+    //   />
+    // );
 
-    const shouldRenderLogoutOption = (isMeteorConnected && allowLogoutSetting)
-      ? logoutOption
-      : null;
+    // const shouldRenderLogoutOption = (isMeteorConnected && allowLogoutSetting)
+    //   ? logoutOption
+    //   : null;
 
     return _.compact([
       this.getFullscreenItem(),
@@ -269,7 +269,7 @@ class SettingsDropdown extends PureComponent {
         />
         )
         : null,
-      shouldRenderLogoutOption,
+      // shouldRenderLogoutOption,
     ]);
   }
 
@@ -302,7 +302,7 @@ class SettingsDropdown extends PureComponent {
             onClick={() => null}
           />
         </DropdownTrigger>
-        <DropdownContent placement="bottom right">
+        <DropdownContent placement="top right">
           <DropdownList>
             {this.renderMenuItems()}
           </DropdownList>

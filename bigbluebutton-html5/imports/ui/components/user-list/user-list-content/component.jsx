@@ -47,24 +47,16 @@ class UserContent extends PureComponent {
       requestUserInformation,
     } = this.props;
 
+    console.log('activeChats')
+    console.log(activeChats)
+
     return (
       <div
         data-test="userListContent"
         className={styles.content}
         role="complementary"
       >
-        {CHAT_ENABLED
-          ? (<UserMessages
-            {...{
-              isPublicChat,
-              activeChats,
-              compact,
-              intl,
-              roving,
-            }}
-          />
-          ) : null
-        }
+
         {currentUser.role === ROLE_MODERATOR
           ? (
             <UserCaptionsContainer
@@ -107,6 +99,18 @@ class UserContent extends PureComponent {
             requestUserInformation,
           }}
         />
+        {CHAT_ENABLED
+          ? (<UserMessages
+            {...{
+              isPublicChat,
+              activeChats,
+              compact,
+              intl,
+              roving,
+            }}
+          />
+          ) : null
+        }
       </div>
     );
   }

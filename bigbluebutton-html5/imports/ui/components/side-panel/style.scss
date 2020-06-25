@@ -1,0 +1,33 @@
+.sidepanel {
+    background: #000;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidepanel__top, .sidepanel__middle, .sidepanel__bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gutter{
+    margin-bottom: 10px;
+}
+.whiteColor{
+    color: #fff; 
+}
+.userBadge span{
+    background-color: #fff;
+    color: #000;
+}
+.userBadge svg{
+    font-size: 25px;
+}
+.PollDropdown{
+    position: fixed;
+    right: 2%;
+    bottom: 6%;
+}

@@ -79,27 +79,31 @@ class UserMessages extends PureComponent {
 
     let index = -1;
 
-    return activeChats.map(chat => (
-      <CSSTransition
-        classNames={listTransition}
-        appear
-        enter
-        exit={false}
-        timeout={0}
-        component="div"
-        className={cx(styles.chatsList)}
-        key={chat.userId}
-      >
-        <div ref={(node) => { this.activeChatRefs[index += 1] = node; }}>
-          <ChatListItemContainer
-            isPublicChat={isPublicChat}
-            compact={compact}
-            chat={chat}
-            tabIndex={-1}
-          />
-        </div>
-      </CSSTransition>
-    ));
+    return activeChats.map(chat => {
+      if (chat.userId !== "public") {
+        return (
+          <CSSTransition
+            classNames={listTransition}
+            appear
+            enter
+            exit={false}
+            timeout={0}
+            component="div"
+            className={cx(styles.chatsList)}
+            key={chat.userId}
+          >
+            <div ref={(node) => { this.activeChatRefs[index += 1] = node; }}>
+              <ChatListItemContainer
+                isPublicChat={isPublicChat}
+                compact={compact}
+                chat={chat}
+                tabIndex={-1}
+              />
+            </div>
+          </CSSTransition>
+        )
+      }
+    });
   }
 
   changeState(ref) {
@@ -117,25 +121,21 @@ class UserMessages extends PureComponent {
     const {
       intl,
       compact,
+      activeChats
     } = this.props;
 
     return (
       <div className={styles.messages}>
         <div className={styles.container}>
           {
-            !compact ? (
-              <h2 className={styles.smallTitle}>
-                {intl.formatMessage(intlMessages.messagesTitle)}
-              </h2>
-            ) : (
-              <hr className={styles.separator} />
-            )
+            // 
+            activeChats.length > 1 ?  !compact ? <h2 className={styles.smallTitle}>   Private Chats  </h2> : <hr className={styles.separator} /> : null
           }
         </div>
         <div
           role="tabpanel"
           tabIndex={0}
-          className={styles.scrollableList}
+          // className={styles.scrollableList}
           ref={(ref) => { this._msgsList = ref; }}
         >
           <div className={styles.list}>

@@ -33,6 +33,12 @@
   height: 100vh;
   transform: translateZ(0);
 }
+.panelCloseIcon{
+  svg{
+    color: #000;
+    font-size: 25px;
+  }
+}
 
 .header {
   position: relative;
@@ -45,6 +51,7 @@
 
 .title {
   @extend %text-elipsis;
+  font-size: 18px;
   flex: 1;
 
   & > button, button:hover {

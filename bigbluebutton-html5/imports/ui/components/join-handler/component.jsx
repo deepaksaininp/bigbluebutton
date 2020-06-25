@@ -40,6 +40,7 @@ class JoinHandler extends Component {
       } = Meteor.status();
 
       logger.debug(`Initial connection status change. status: ${status}, connected: ${connected}`);
+      console.log(`Initial connection status change. status: ${status}, connected: ${connected}`)
       if (connected) {
         c.stop();
 

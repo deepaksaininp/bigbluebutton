@@ -133,12 +133,19 @@
 }
 
 .smallTitle {
-  font-size: 0.85rem;
+  font-size: 20px;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: capitalize;
   padding: 0 var(--sm-padding-x);
-  margin: 0 0 (var(--lg-padding-x) / 2) 0;
-  color: var(--color-gray);
+  margin: 0 0 var(--lg-padding-x)/2 0;
+  color: #000;
+}
+
+.panelCloseIcon{
+  svg{
+    color: #000;
+    font-size: 25px;
+  }
 }
 
 .userListColumn {
@@ -169,5 +176,12 @@
 
   :global(.animationsEnabled) & {
     transition: all 600ms;
+  }
+}
+
+.publicList{
+  margin: 0;
+  .userList{
+    background-color: transparent;
   }
 }

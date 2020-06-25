@@ -1,17 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Session } from 'meteor/session';
-import cx from 'classnames';
-import { withModalMounter } from '/imports/ui/components/modal/service';
-import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
-import getFromUserSettings from '/imports/ui/services/users-settings';
-import { defineMessages, injectIntl } from 'react-intl';
-import Icon from '../icon/component';
-import { styles } from './styles.scss';
-import Button from '../button/component';
-import RecordingIndicator from './recording-indicator/container';
-import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-indicator/container';
-import SettingsDropdownContainer from './settings-dropdown/container';
+import { Session } from 'meteor/session'; 
+import withShortcutHelper from '/imports/ui/components/shortcut-help/service'; 
+import { defineMessages, injectIntl } from 'react-intl'; 
+import { styles } from './styles.scss'; 
+import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-indicator/container'; 
 
 
 const intlMessages = defineMessages({
@@ -52,18 +45,7 @@ class NavBar extends PureComponent {
     Session.set('idChatOpen', '');
   }
 
-  componentDidMount() {
-    const {
-      processOutsideToggleRecording,
-      connectRecordingObserver,
-    } = this.props;
-
-    if (Meteor.settings.public.allowOutsideCommands.toggleRecording
-      || getFromUserSettings('bbb_outside_toggle_recording', false)) {
-      connectRecordingObserver();
-      window.addEventListener('message', processOutsideToggleRecording);
-    }
-  }
+ 
 
   componentWillUnmount() {
     clearInterval(this.interval);
@@ -74,8 +56,7 @@ class NavBar extends PureComponent {
       hasUnreadMessages,
       isExpanded,
       intl,
-      shortcuts: TOGGLE_USERLIST_AK,
-      mountModal,
+      shortcuts: TOGGLE_USERLIST_AK, 
       presentationTitle,
       amIModerator,
     } = this.props;
@@ -91,7 +72,7 @@ class NavBar extends PureComponent {
     return (
       <div className={styles.navbar}>
         <div className={styles.top}>
-          <div className={styles.left}>
+          {/* <div className={styles.left}>
             {!isExpanded ? null
               : <Icon iconName="left_arrow" className={styles.arrowLeft} />
             }
@@ -112,18 +93,12 @@ class NavBar extends PureComponent {
             {isExpanded ? null
               : <Icon iconName="right_arrow" className={styles.arrowRight} />
             }
-          </div>
+          </div> */}
           <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
-            <RecordingIndicator
-              mountModal={mountModal}
-              amIModerator={amIModerator}
-            />
-          </div>
-          <div className={styles.right}>
-            <SettingsDropdownContainer amIModerator={amIModerator} />
-          </div>
+             
+          </div> 
         </div>
         <div className={styles.bottom}>
           <TalkingIndicatorContainer amIModerator={amIModerator} />
@@ -135,4 +110,4 @@ class NavBar extends PureComponent {
 
 NavBar.propTypes = propTypes;
 NavBar.defaultProps = defaultProps;
-export default withShortcutHelper(withModalMounter(injectIntl(NavBar)), 'toggleUserList');
+export default withShortcutHelper(injectIntl(NavBar), 'toggleUserList');

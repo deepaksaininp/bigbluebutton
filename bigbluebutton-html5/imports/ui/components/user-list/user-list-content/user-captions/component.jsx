@@ -88,7 +88,7 @@ class UserCaptions extends Component {
         >
           <div className={styles.list}>
             <TransitionGroup ref={(ref) => { this._msgItems = ref; }}>
-              {this.renderCaptions()}
+              {this.renderCaptions()} 
             </TransitionGroup>
           </div>
         </div>

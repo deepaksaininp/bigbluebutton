@@ -6,7 +6,7 @@
  */
 
 :root {
-  --btn-default-color: var(--color-gray);
+  --btn-default-color: #000;
   --btn-default-bg: var(--color-white);
   --btn-default-border: var(--color-white);
 
@@ -31,10 +31,10 @@
   --btn-font-weight: 600;
   --btn-spacing: .35rem;
 
-  --btn-sm-font-size: calc(var(--font-size-small) * .85);
+  --btn-sm-font-size: 18px;
   --btn-sm-padding: var(--sm-padding-y) var(--sm-padding-x);
 
-  --btn-md-font-size: calc(var(--font-size-base) * .85);
+  --btn-md-font-size: 18px;
   --btn-md-padding: var(--md-padding-y) var(--md-padding-x);
 
   --btn-lg-font-size: calc(var(--font-size-large) * .85);

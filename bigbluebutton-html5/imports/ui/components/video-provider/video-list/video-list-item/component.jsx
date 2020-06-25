@@ -188,7 +188,7 @@ class VideoListItem extends Component {
                 <DropdownTrigger className={styles.dropdownTrigger}>
                   <span>{name}</span>
                 </DropdownTrigger>
-                <DropdownContent placement="top left" className={styles.dropdownContent}>
+                <DropdownContent placement="top right" className={styles.dropdownContent}>
                   <DropdownList className={styles.dropdownList}>
                     {availableActions}
                   </DropdownList>

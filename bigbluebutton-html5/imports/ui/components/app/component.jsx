@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { throttle } from 'lodash';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
@@ -23,6 +23,8 @@ import MediaService from '/imports/ui/components/media/service';
 import ManyWebcamsNotifier from '/imports/ui/components/video-provider/many-users-notify/container';
 import { withDraggableContext } from '../media/webcam-draggable-overlay/context';
 import { styles } from './styles';
+import SidePanel from '/imports/ui/components/side-panel/component';
+import SubSidePanel from '../subside-panel/component';
 
 const MOBILE_MEDIA = 'only screen and (max-width: 40em)';
 const APP_CONFIG = Meteor.settings.public.app;
@@ -155,7 +157,7 @@ class App extends Component {
 
     if (prevProps.currentUserEmoji.status !== currentUserEmoji.status) {
       const formattedEmojiStatus = intl.formatMessage({ id: `app.actionsBar.emojiMenu.${currentUserEmoji.status}Label` })
-      || currentUserEmoji.status;
+        || currentUserEmoji.status;
 
       notify(
         currentUserEmoji.status === 'none'
@@ -209,15 +211,33 @@ class App extends Component {
     const { enableResize } = this.state;
     const { openPanel, isRTL } = this.props;
 
+    const MenusHandler = (value) => {
+      alert(value)
+    }
+
     return (
-      <PanelManager
-        {...{
+      <Fragment>
+        <SidePanel {...{
           openPanel,
           enableResize,
           isRTL,
-        }}
-        shouldAriaHide={this.shouldAriaHide}
-      />
+          MenusHandler
+        }} />
+        <PanelManager
+          {...{
+            openPanel,
+            enableResize,
+            isRTL,
+          }}
+          shouldAriaHide={this.shouldAriaHide}
+        />
+        {/* <SubSidePanel {...{
+          openPanel,
+          enableResize,
+          isRTL,
+          MenusHandler
+        }} /> */}
+      </Fragment>
     );
   }
 
@@ -277,27 +297,30 @@ class App extends Component {
     );
   }
 
-  renderActionsBar() {
-    const {
-      actionsbar,
-      intl,
-    } = this.props;
+  // renderActionsBar() {
+  //   const {
+  //     actionsbar,
+  //     intl,
+  //   } = this.props;
 
-    if (!actionsbar) return null;
+  //   if (!actionsbar) return null;
 
-    return (
-      <section
-        className={styles.actionsbar}
-        aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
-        aria-hidden={this.shouldAriaHide()}
-      >
-        {actionsbar}
-      </section>
-    );
-  }
+  //   return (
+  //     <section
+  //       className={styles.actionsbar}
+  //       aria-label={intl.formatMessage(intlMessages.actionsBarLabel)}
+  //       aria-hidden={this.shouldAriaHide()}
+  //     >
+  //       {actionsbar}
+  //     </section>
+  //   );
+  // }
 
   renderActivityCheck() {
     const { User } = this.props;
+    console.log('User');
+    console.log(User);
+    console.log('User');
 
     const { inactivityCheck, responseDelay } = User;
 
@@ -310,6 +333,10 @@ class App extends Component {
 
   renderUserInformation() {
     const { UserInfo, User } = this.props;
+
+    console.log('UserInfo');
+    console.log(UserInfo);
+    console.log('UserInfo');
 
     return (UserInfo.length > 0 ? (
       <UserInfoContainer
@@ -333,7 +360,7 @@ class App extends Component {
           <div className={openPanel ? styles.content : styles.noPanelContent}>
             {this.renderNavBar()}
             {this.renderMedia()}
-            {this.renderActionsBar()}
+            {/* {this.renderActionsBar()} */}
           </div>
           {this.renderPanel()}
           {this.renderSidebar()}

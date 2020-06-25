@@ -18,9 +18,9 @@
 }
 
 .scrollableList {
-  @include elementFocus(var(--list-item-bg-hover));
-  @include scrollbox-vertical(var(--user-list-bg));
-  @include highContrastOutline();
+  // @include elementFocus(var(--list-item-bg-hover));
+  // // @include scrollbox-vertical(var(--user-list-bg));
+  // @include highContrastOutline();
 
   &:focus-within,
   &:focus {
@@ -160,4 +160,8 @@
 .noteTitle {
   font-weight: 400;
   font-size: var(--font-size-small);
+}
+
+.userOption{
+  right: 50px;
 }

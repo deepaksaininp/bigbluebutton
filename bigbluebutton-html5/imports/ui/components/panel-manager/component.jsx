@@ -36,15 +36,15 @@ const propTypes = {
     formatMessage: PropTypes.func.isRequired,
   }).isRequired,
   enableResize: PropTypes.bool.isRequired,
-  openPanel: PropTypes.string.isRequired,
+  openPanel: PropTypes.string,
 };
 
 
 const DEFAULT_PANEL_WIDTH = 340;
 
 // Variables for resizing user-list.
-const USERLIST_MIN_WIDTH_PX = 150;
-const USERLIST_MAX_WIDTH_PX = 240;
+const USERLIST_MIN_WIDTH_PX = 320;
+const USERLIST_MAX_WIDTH_PX = 400;
 
 // Variables for resizing chat.
 const CHAT_MIN_WIDTH = 150;
@@ -91,14 +91,14 @@ class PanelManager extends PureComponent {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    const { openPanel } = this.props;
-    const { openPanel: oldOpenPanel } = prevProps;
+  // componentDidUpdate(prevProps) {
+  //   const { openPanel } = this.props;
+  //   const { openPanel: oldOpenPanel } = prevProps;
 
-    if (openPanel !== oldOpenPanel) {
-      window.dispatchEvent(new Event('resize'));
-    }
-  }
+  //   if (openPanel !== oldOpenPanel) {
+  //     window.dispatchEvent(new Event('resize'));
+  //   }
+  // }
 
   renderUserList() {
     const {
@@ -405,16 +405,17 @@ class PanelManager extends PureComponent {
   }
 
   render() {
-    const { enableResize, openPanel } = this.props;
+    const { enableResize, openPanel } = this.props; 
+    alert(openPanel)
     if (openPanel === '') return null;
     const panels = [];
-    if (enableResize) {
-      panels.push(
-        this.renderUserListResizable(),
-        <div className={styles.userlistPad} key={this.padKey} />,
-      );
-    } else {
-      panels.push(this.renderUserList());
+
+    if (openPanel === 'userlist') {
+      if (enableResize) {
+        panels.push(this.renderUserListResizable());
+      } else {
+        panels.push(this.renderUserList());
+      }
     }
 
     if (openPanel === 'chat') {
