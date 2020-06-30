@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
+import { IconButton, Tooltip } from '@material-ui/core';
+import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import { Session } from 'meteor/session';
-import Icon from '/imports/ui/components/icon/component';
-import { styles } from '/imports/ui/components/user-list/user-list-content/styles';
 
 const intlMessages = defineMessages({
   breakoutTitle: {
@@ -26,27 +26,11 @@ const BreakoutRoomItem = ({
 }) => {
   if (hasBreakoutRoom) {
     return (
-      <div className={styles.messages}>
-        <div className={styles.container}>
-          <h2 className={styles.smallTitle}>
-            {intl.formatMessage(intlMessages.breakoutTitle)}
-          </h2>
-        </div>
-        <div className={styles.scrollableList}>
-          <div className={styles.list}>
-            <div
-              role="button"
-              tabIndex={0}
-              onClick={toggleBreakoutPanel}
-              className={styles.listItem}
-              aria-label={intl.formatMessage(intlMessages.breakoutTitle)}
-            >
-              <Icon iconName="rooms" />
-              <span aria-hidden>{intl.formatMessage(intlMessages.breakoutTitle)}</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Tooltip title="Breakout Rooms">
+        <IconButton tabIndex={0} onClick={toggleBreakoutPanel} style={{ padding: 0 }}>
+          <VideoLabelIcon style={{ color: '#fff' }} />
+        </IconButton>
+      </Tooltip>
     );
   }
   return <span />;

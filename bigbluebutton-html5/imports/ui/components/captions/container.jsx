@@ -13,6 +13,8 @@ export default withTracker(() => {
     revs,
     data,
   } = CaptionsService.getCaptionsData();
+  console.log('padId')
+  console.log(padId)
 
   return {
     padId,

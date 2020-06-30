@@ -6,6 +6,8 @@ import { Session } from 'meteor/session';
 import logger from '/imports/startup/client/logger';
 import { styles } from './styles';
 import BreakoutRoomContainer from './breakout-remaining-time/container';
+import CloseSharpIcon from '@material-ui/icons/CloseSharp';
+import { IconButton } from '@material-ui/core';
 
 const intlMessages = defineMessages({
   breakoutTitle: {
@@ -199,6 +201,7 @@ class BreakoutRoom extends PureComponent {
           : (
             <Button
               label={intl.formatMessage(intlMessages.breakoutJoin)}
+              data-test="breakoutJoin"
               aria-label={`${intl.formatMessage(intlMessages.breakoutJoin)} ${number}`}
               onClick={() => {
                 this.getBreakoutURL(breakoutId);
@@ -314,13 +317,18 @@ class BreakoutRoom extends PureComponent {
     } = this.props;
     return (
       <div className={styles.panel}>
-        <Button
-          icon="left_arrow"
+        {/* <Button 
           label={intl.formatMessage(intlMessages.breakoutTitle)}
           aria-label={intl.formatMessage(intlMessages.breakoutAriaTitle)}
           className={styles.header}
           onClick={closeBreakoutPanel}
-        />
+        /> */}
+        <div className={styles.header}>
+          <h2>{intl.formatMessage(intlMessages.breakoutTitle)}</h2>
+          <IconButton onClick={() => { Session.set('openPanel', '') }}>
+            <CloseSharpIcon />
+          </IconButton>
+        </div>
         {this.renderBreakoutRooms()}
         {this.renderDuration()}
         {

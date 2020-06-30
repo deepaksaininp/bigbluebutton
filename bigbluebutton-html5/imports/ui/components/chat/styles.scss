@@ -52,12 +52,20 @@
 
 .title {
   @extend %text-elipsis;
+  font-size: 18px;
   flex: 1;
 
   & > button, button:hover {
     max-width: var(--toast-content-width);
   }
 }
+.panelCloseIcon{
+  svg{
+    color: #000;
+    font-size: 25px;
+  }
+}
+
 
 .hideBtn {
   position: relative;

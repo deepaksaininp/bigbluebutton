@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { defineMessages, injectIntl } from 'react-intl';
+import ChatIcon from '@material-ui/icons/Chat';
 import { Session } from 'meteor/session';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import { styles } from './styles';
 import ChatAvatar from './chat-avatar/component';
-import ChatIcon from './chat-icon/component';
 import ChatUnreadCounter from './chat-unread-messages/component';
 
 const intlMessages = defineMessages({
@@ -78,8 +78,9 @@ const ChatListItem = (props) => {
     <div
       data-test="chatButton"
       role="button"
-      className={cx(styles.chatListItem, linkClasses)}
+      style={{ padding: '0px 4px' }}
       aria-expanded={isCurrentChat}
+      className={isPublicChat(chat) ? null : cx(styles.chatListItem, linkClasses)}
       tabIndex={tabIndex}
       accessKey={isPublicChat(chat) ? TOGGLE_CHAT_PUB_AK : null}
       onClick={() => handleClickToggleChat(chat.userId)}
@@ -87,10 +88,10 @@ const ChatListItem = (props) => {
       aria-label={isPublicChat(chat) ? intl.formatMessage(intlMessages.titlePublic) : chat.name}
     >
 
-      <div className={styles.chatListItemLink}>
+      <div className={styles.chatListItemLink} style={{ position: 'relative' }}>
         <div className={styles.chatIcon}>
           {chat.icon
-            ? <ChatIcon icon={chat.icon} />
+            ? <ChatIcon className={styles.chatIcon} />
             : (
               <ChatAvatar
                 isModerator={chat.isModerator}
@@ -99,22 +100,18 @@ const ChatListItem = (props) => {
               />
             )}
         </div>
+
         <div className={styles.chatName}>
           {!compact
             ? (
               <span className={styles.chatNameMain}>
                 {isPublicChat(chat)
-                  ? intl.formatMessage(intlMessages.titlePublic) : chat.name}
+                  ? null : chat.name}
               </span>
             ) : null}
         </div>
-        {(chat.unreadCounter > 0)
-          ? (
-            <ChatUnreadCounter
-              counter={chat.unreadCounter}
-            />
-          )
-          : null}
+        {}
+        {(chat.unreadCounter > 0) ? isPublicChat(chat) ? <span className={styles.unreadCounerPublic}>{chat.unreadCounter}</span> : (<ChatUnreadCounter counter={chat.unreadCounter} />) : null}
       </div>
     </div>
   );

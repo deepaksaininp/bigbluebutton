@@ -19,11 +19,12 @@ class PadContainer extends PureComponent {
 export default withTracker(() => {
   const locale = Session.get('captionsLocale');
   const caption = CaptionsService.getCaptions(locale);
-  const {
-    padId,
-    ownerId,
-    readOnlyPadId,
-  } = caption;
+  const padId = caption.padId;
+  const ownerId = caption.ownerId;
+  const readOnlyPadId = caption.readOnlyPadId;
+
+  console.log('caption')
+  console.log(caption)
 
   const { name } = caption ? caption.locale : '';
 

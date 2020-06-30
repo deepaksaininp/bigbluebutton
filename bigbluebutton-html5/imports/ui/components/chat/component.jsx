@@ -1,6 +1,9 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, injectIntl } from 'react-intl';
+
+import CloseIcon from '@material-ui/icons/Close';
+import { IconButton } from '@material-ui/core';
 import injectWbResizeEvent from '/imports/ui/components/presentation/resize-wrapper/component';
 import Button from '/imports/ui/components/button/component';
 import { Session } from 'meteor/session';
@@ -48,7 +51,7 @@ const Chat = (props) => {
 
   return (
     <div
-      data-test="publicChat"
+      data-test={chatID !== 'public' ? 'privateChat' : 'publicChat'}
       className={styles.chat}
     >
       <header className={styles.header}>
@@ -56,39 +59,16 @@ const Chat = (props) => {
           data-test="chatTitle"
           className={styles.title}
         >
-          <Button
-            onClick={() => {
-              Session.set('idChatOpen', '');
-              Session.set('openPanel', 'userlist');
-            }}
-            aria-label={intl.formatMessage(intlMessages.hideChatLabel, { 0: title })}
-            accessKey={HIDE_CHAT_AK}
-            label={title}
-            icon="left_arrow"
-            className={styles.hideBtn}
-          />
+          {title}
         </div>
         {
-          chatID !== 'public'
-            ? (
-              <Button
-                icon="close"
-                size="sm"
-                ghost
-                color="dark"
-                hideLabel
-                onClick={() => {
-                  actions.handleClosePrivateChat(chatID);
-                  Session.set('idChatOpen', '');
-                  Session.set('openPanel', 'userlist');
-                }}
-                aria-label={intl.formatMessage(intlMessages.closeChatLabel, { 0: title })}
-                label={intl.formatMessage(intlMessages.closeChatLabel, { 0: title })}
-                accessKey={CLOSE_CHAT_AK}
-              />
-            )
-            : <ChatDropdown isMeteorConnected={isMeteorConnected} amIModerator={amIModerator} />
+          chatID !== 'public' ? null : <ChatDropdown isMeteorConnected={isMeteorConnected} amIModerator={amIModerator} />
         }
+        <div className={styles.panelCloseIcon}>
+          <IconButton onClick={() => { Session.set('openPanel', 'userlist'); }}>
+            <CloseIcon />
+          </IconButton>
+        </div>
       </header>
       <MessageList
         id={ELEMENT_ID}

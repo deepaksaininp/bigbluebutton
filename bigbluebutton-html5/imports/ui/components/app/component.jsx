@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { throttle } from 'lodash';
 import { defineMessages, injectIntl, intlShape } from 'react-intl';
@@ -22,6 +22,7 @@ import PingPongContainer from '/imports/ui/components/ping-pong/container';
 import MediaService from '/imports/ui/components/media/service';
 import ManyWebcamsNotifier from '/imports/ui/components/video-provider/many-users-notify/container';
 import { styles } from './styles';
+import SidePanelManager from '../sidepanel-manager/component';
 
 const MOBILE_MEDIA = 'only screen and (max-width: 40em)';
 const APP_CONFIG = Meteor.settings.public.app;
@@ -153,7 +154,7 @@ class App extends Component {
 
     if (prevProps.currentUserEmoji.status !== currentUserEmoji.status) {
       const formattedEmojiStatus = intl.formatMessage({ id: `app.actionsBar.emojiMenu.${currentUserEmoji.status}Label` })
-      || currentUserEmoji.status;
+        || currentUserEmoji.status;
 
       notify(
         currentUserEmoji.status === 'none'
@@ -208,14 +209,21 @@ class App extends Component {
     const { openPanel, isRTL } = this.props;
 
     return (
-      <PanelManager
-        {...{
+      <Fragment>
+        <SidePanelManager {...{
           openPanel,
           enableResize,
           isRTL,
-        }}
-        shouldAriaHide={this.shouldAriaHide}
-      />
+        }} />
+        <PanelManager
+          {...{
+            openPanel,
+            enableResize,
+            isRTL,
+          }}
+          shouldAriaHide={this.shouldAriaHide}
+        />
+      </Fragment>
     );
   }
 

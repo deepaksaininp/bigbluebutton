@@ -53,18 +53,6 @@ class UserContent extends PureComponent {
         className={styles.content}
         role="complementary"
       >
-        {CHAT_ENABLED
-          ? (<UserMessages
-            {...{
-              isPublicChat,
-              activeChats,
-              compact,
-              intl,
-              roving,
-            }}
-          />
-          ) : null
-        }
         {currentUser.role === ROLE_MODERATOR
           ? (
             <UserCaptionsContainer
@@ -89,14 +77,14 @@ class UserContent extends PureComponent {
             />
           ) : null
         }
-        <UserPolls
+        {/* <UserPolls
           isPresenter={currentUser.presenter}
           {...{
             pollIsOpen,
             forcePollOpen,
           }}
-        />
-        <BreakoutRoomItem isPresenter={currentUser.presenter} hasBreakoutRoom={hasBreakoutRoom} />
+        /> */}
+        {/* <BreakoutRoomItem isPresenter={currentUser.presenter} hasBreakoutRoom={hasBreakoutRoom} /> */}
         <UserParticipantsContainer
           {...{
             compact,
@@ -107,6 +95,18 @@ class UserContent extends PureComponent {
             requestUserInformation,
           }}
         />
+        {CHAT_ENABLED
+          ? (<UserMessages
+            {...{
+              isPublicChat,
+              activeChats,
+              compact,
+              intl,
+              roving,
+            }}
+          />
+          ) : null
+        }
       </div>
     );
   }

@@ -14,6 +14,7 @@ import TalkingIndicatorContainer from '/imports/ui/components/nav-bar/talking-in
 import SettingsDropdownContainer from './settings-dropdown/container';
 
 
+
 const intlMessages = defineMessages({
   toggleUserListLabel: {
     id: 'app.navBar.userListToggleBtnLabel',
@@ -92,37 +93,19 @@ class NavBar extends PureComponent {
       <div className={styles.navbar}>
         <div className={styles.top}>
           <div className={styles.left}>
-            {!isExpanded ? null
-              : <Icon iconName="left_arrow" className={styles.arrowLeft} />
-            }
-            <Button
-              data-test="userListToggleButton"
-              onClick={NavBar.handleToggleUserList}
-              ghost
-              circle
-              hideLabel
-              label={intl.formatMessage(intlMessages.toggleUserListLabel)}
-              aria-label={ariaLabel}
-              icon="user"
-              className={cx(toggleBtnClasses)}
-              aria-expanded={isExpanded}
-              accessKey={TOGGLE_USERLIST_AK}
-            />
-            {isExpanded ? null
-              : <Icon iconName="right_arrow" className={styles.arrowRight} />
-            }
+            <img className={styles.logo} src="https://www.nplive.in/assets/images/f-logo.png" />
           </div>
           <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1>
 
-            <RecordingIndicator
+            {/* <RecordingIndicator
               mountModal={mountModal}
               amIModerator={amIModerator}
-            />
+            /> */}
           </div>
-          <div className={styles.right}>
+          {/* <div className={styles.right}>
             <SettingsDropdownContainer amIModerator={amIModerator} />
-          </div>
+          </div> */}
         </div>
         <div className={styles.bottom}>
           <TalkingIndicatorContainer amIModerator={amIModerator} />

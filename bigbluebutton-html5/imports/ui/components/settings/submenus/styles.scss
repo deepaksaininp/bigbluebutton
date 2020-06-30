@@ -80,8 +80,8 @@
   }
 
   &:focus {
-    @include highContrastOutline();
-    outline-style: solid;
+    // @include highContrastOutline();
+    // outline-style: solid;
   }
 }
 

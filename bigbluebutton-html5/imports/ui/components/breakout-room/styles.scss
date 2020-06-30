@@ -28,10 +28,21 @@
 
 .header {
   position: relative;
-  margin: 0 auto 2rem 0;
   padding-left: 0;
   padding-right: inherit;
   background: none !important;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0;
+  h2{
+    margin-top: 0;
+  }
+  button{
+    color: #000;
+    font-size: 25px;
+    margin-top: -15px;
+    padding: 0;
+  }
   [dir="rtl"] & {
     margin: 0 0 2rem auto;
     padding-left: inherit;

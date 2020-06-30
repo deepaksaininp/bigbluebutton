@@ -303,7 +303,7 @@ class SettingsDropdown extends PureComponent {
             onClick={() => null}
           />
         </DropdownTrigger>
-        <DropdownContent placement="bottom right">
+        <DropdownContent placement="top left">
           <DropdownList>
             {this.renderMenuItems()}
           </DropdownList>

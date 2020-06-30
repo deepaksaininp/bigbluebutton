@@ -125,7 +125,7 @@ class RecordingIndicator extends PureComponent {
     }
 
     const recordingToggle = () => {
-      if (!micUser) {
+      if (!micUser && !recording) {
         notify(intl.formatMessage(intlMessages.emptyAudioBrdige), 'error', 'warning');
       }
       mountModal(<RecordingContainer amIModerator={amIModerator} />);
@@ -178,7 +178,7 @@ class RecordingIndicator extends PureComponent {
             ) : null
           }
           {recording
-            ? <span aria-hidden>{humanizeSeconds(time)}</span> : <span>{recordTitle}</span>}
+            ? <span aria-hidden>{humanizeSeconds(time)}</span> : null}
         </div>
       </div>
     );
@@ -193,9 +193,9 @@ class RecordingIndicator extends PureComponent {
 
     return (
       <Fragment>
-        {record
+        {/* {record
           ? <span className={styles.presentationTitleSeparator} aria-hidden>|</span>
-          : null}
+          : null} */}
         <div className={styles.recordingIndicator}>
           {showButton
             ? recordingButton
@@ -215,8 +215,8 @@ class RecordingIndicator extends PureComponent {
               >
                 {recordingIndicatorIcon}
 
-                {recording
-                  ? <div className={styles.presentationTitle}>{humanizeSeconds(time)}</div> : null}
+                {/* {recording
+                  ? <div className={styles.presentationTitle}>{humanizeSeconds(time)}</div> : null} */}
               </div>
             </Tooltip>
           )}

@@ -7,8 +7,8 @@ import logger from '/imports/startup/client/logger';
 import { notify } from '/imports/ui/services/notification';
 import cx from 'classnames';
 import Modal from '/imports/ui/components/modal/simple/component';
-import { withModalMounter } from '../../modal/service';
-import { styles } from '../styles';
+import { withModalMounter } from './../../modal/service';
+import { styles } from './../../actions-bar/styles';
 import ScreenshareBridgeService from '/imports/api/screenshare/client/bridge/service';
 
 const propTypes = {
@@ -195,7 +195,7 @@ const DesktopShare = ({
                 {intl.formatMessage(intlMessages.screenShareUnavailable)}
               </h3>
               <p>{intl.formatMessage(intlMessages.screenShareNotSupported)}</p>
-                              </Modal>);
+            </Modal>);
           }
           handleShareScreen(onFail);
         }
