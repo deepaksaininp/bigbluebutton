@@ -559,6 +559,9 @@ class AudioModal extends Component {
               />
             </p>
           ) : null}
+          <div className={styles.content}>
+            {this.renderContent()}
+          </div>
           {!this.skipAudioOptions()
             ? (
               <header
@@ -579,9 +582,6 @@ class AudioModal extends Component {
             )
             : null
           }
-          <div className={styles.content}>
-            {this.renderContent()}
-          </div>
         </Modal>
       </span>
     );

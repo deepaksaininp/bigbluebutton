@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { IconButton, Badge } from '@material-ui/core';
+import { IconButton, Badge, Tooltip } from '@material-ui/core';
+import PostAddIcon from '@material-ui/icons/PostAdd';
 import PeopleIcon from '@material-ui/icons/People';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
@@ -16,6 +17,9 @@ import { injectIntl } from 'react-intl';
 import { makeCall } from '/imports/ui/services/api';
 import RecordingIndicator from './../nav-bar/recording-indicator/container';
 import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
+import BreakoutRoomActionContainer from './../breakout-room-action/container';
+import UserPollActionContainer from './../userpoll-action/container';
+import PublicUserActionContainer from '../public-chat/container';
 
 import DesktopShareCompContainer from './../desktop-share/container';
 import UserListService from '/imports/ui/components/user-list/service';
@@ -80,8 +84,8 @@ class SidePanelManager extends Component {
         const { mountModal } = this.props;
         const { showSubMenu } = this.state;
         const currentUser = Users.findOne({ userId: Auth.userID }, { fields: { role: 1 } });
-        const amIModerator = currentUser.role === ROLE_MODERATOR; 
-        const totalUsers = UserListService.getUsers().length; 
+        const amIModerator = currentUser.role === ROLE_MODERATOR;
+        const totalUsers = UserListService.getUsers().length;
         return (
             <Fragment>
                 {showSubMenu === true ? <SubSidebar hideSubMenuHandler={this.hideSubMenuHandler} /> : null}
@@ -110,7 +114,6 @@ class SidePanelManager extends Component {
                                 </Badge>
                             </IconButton>
                         </div>
-
                         <div className={styles.gutter}>
                             <IconButton onClick={() => this.showSubMenuHandler()}>
                                 <MoreHorizIcon className={styles.whiteColor} />

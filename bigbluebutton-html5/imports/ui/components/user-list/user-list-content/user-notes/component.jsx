@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages } from 'react-intl';
 import Icon from '/imports/ui/components/icon/component';
@@ -90,10 +90,7 @@ class UserNotes extends Component {
         onClick={NoteService.toggleNotePanel}
       >
         <Icon iconName="copy" />
-        <div aria-hidden>
-          <div className={styles.noteTitle}>
-            {intl.formatMessage(intlMessages.sharedNotes)}
-          </div>
+        <div aria-hidden> 
           {disableNote
             ? (
               <div className={styles.noteLock}>
@@ -113,20 +110,22 @@ class UserNotes extends Component {
 
     if (!NoteService.isEnabled()) return null;
 
-    return (
-      <div className={styles.messages}>
-        <div className={styles.container}>
-          <h2 className={styles.smallTitle}>
-            {intl.formatMessage(intlMessages.title)}
-          </h2>
-        </div>
-        <div className={styles.scrollableList}>
-          <div className={styles.list}>
-            {this.renderNotes()}
-          </div>
-        </div>
-      </div>
-    );
+    return <Fragment> {this.renderNotes()}</Fragment>
+
+    // return (
+    //   <div className={styles.messages}>
+    //     <div className={styles.container}>
+    //       <h2 className={styles.smallTitle}>
+    //         {intl.formatMessage(intlMessages.title)}
+    //       </h2>
+    //     </div>
+    //     <div className={styles.scrollableList}>
+    //       <div className={styles.list}>
+    //         {this.renderNotes()}
+    //       </div>
+    //     </div>
+    //   </div>
+    // );
   }
 }
 

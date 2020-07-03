@@ -46,7 +46,7 @@
 }
 
 .listItem {
-  @extend %list-item;
+  // @extend %list-item;
   align-items: center;
   cursor: pointer;
   display: flex;
@@ -58,8 +58,8 @@
   padding-left: var(--lg-padding-y);
   text-decoration: none;
   width: 100%;
-  color: var(--color-gray-dark);
-  background-color: var(--color-off-white);
+  color: #fff;
+  // background-color: var(--color-off-white);
 
   [dir="rtl"]  & {
     padding-right: var(--lg-padding-y);
@@ -69,7 +69,7 @@
   > i {
     display: flex;
     font-size: 175%;
-    color: var(--color-gray-light);
+    color: #fff;
     flex: 0 0 2.2rem;
     margin-right: var(--sm-padding-x);
     [dir="rtl"]  & {

@@ -102,20 +102,20 @@ class ExternalVideoModal extends Component {
         onRequestClose={closeModal}
         contentLabel={intl.formatMessage(intlMessages.title)}
         hideBorder
+        title={intl.formatMessage(intlMessages.title)}
       >
-        <header data-test="videoModealHeader" className={styles.header}>
+        {/* <header data-test="videoModealHeader" className={styles.header}>
           <h3 className={styles.title}>{intl.formatMessage(intlMessages.title)}</h3>
-        </header>
+        </header> */}
 
         <div className={styles.content}>
           <div className={styles.videoUrl}>
             <label htmlFor="video-modal-input" id="video-modal-input">
-              {intl.formatMessage(intlMessages.input)}
               <input
                 id="video-modal-input"
                 onChange={this.updateVideoUrlHandler}
                 name="video-modal-input"
-                placeholder={intl.formatMessage(intlMessages.urlInput)}
+                placeholder={intl.formatMessage(intlMessages.input)}
                 disabled={sharing}
                 aria-describedby="exernal-video-note"
               />

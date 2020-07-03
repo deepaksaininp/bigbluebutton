@@ -7,17 +7,17 @@ import CaptionsButtonContainer from '/imports/ui/components/actions-bar/captions
 class QuickPoll extends PureComponent {
     render() {
         const {
-            amIPresenter, 
-            amIModerator, 
+            amIPresenter,
+            amIModerator,
             handleTakePresenter,
             intl,
             currentSlidHasContent,
             parseCurrentSlideContent,
-            isSharingVideo, 
-            stopExternalVideoShare, 
+            isSharingVideo,
+            stopExternalVideoShare,
             isCaptionsAvailable,
             isMeteorConnected,
-            isPollingEnabled, 
+            isPollingEnabled,
             allowExternalVideo,
         } = this.props;
 
@@ -48,12 +48,14 @@ class QuickPoll extends PureComponent {
                         />
                     ) : null
                 }
-                {isCaptionsAvailable
-                    ? (
-                        <CaptionsButtonContainer {...{ intl }} />
-                    )
-                    : null
-                }
+                <div style={{padding: "20px 0"}}>
+                    {isCaptionsAvailable
+                        ? (
+                            <CaptionsButtonContainer {...{ intl }} />
+                        )
+                        : null
+                    }
+                </div>
             </Fragment>
         );
     }

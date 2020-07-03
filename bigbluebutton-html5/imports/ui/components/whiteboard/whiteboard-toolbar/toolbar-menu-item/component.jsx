@@ -99,7 +99,7 @@ export default class ToolbarMenuItem extends Component {
           onKeyPress={this.handleOnMouseDown}
           onKeyUp={this.handleOnMouseUp}
           onBlur={onBlur}
-          className={className}
+          className={className, styles.toolbarBtn}
           setRef={this.setRef}
           disabled={disabled}
         />

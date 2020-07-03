@@ -53,7 +53,7 @@ class UserContent extends PureComponent {
         className={styles.content}
         role="complementary"
       >
-        {currentUser.role === ROLE_MODERATOR
+        {/* {currentUser.role === ROLE_MODERATOR
           ? (
             <UserCaptionsContainer
               {...{
@@ -61,12 +61,12 @@ class UserContent extends PureComponent {
               }}
             />
           ) : null
-        }
-        <UserNotesContainer
+        } */}
+        {/* <UserNotesContainer
           {...{
             intl,
           }}
-        />
+        /> */}
         {pendingUsers.length > 0 && currentUser.role === ROLE_MODERATOR
           ? (
             <WaitingUsers

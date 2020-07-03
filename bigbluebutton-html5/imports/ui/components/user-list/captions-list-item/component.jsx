@@ -54,7 +54,7 @@ const CaptionsListItem = (props) => {
       aria-label={`${locale.name} ${intl.formatMessage(intlMessages.captionLabel)}`}
     >
       <Icon iconName="closed_caption" />
-      <span aria-hidden>{locale.name}</span>
+      {/* <span aria-hidden>{locale.name}</span> */}
     </div>
   );
 };

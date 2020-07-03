@@ -10,8 +10,7 @@
   @include highContrastOutline();
   outline-style: solid;
   display: flex;
-  flex-direction: column;
-  align-self: flex-start;
+  flex-direction: column; 
   padding: calc(var(--line-height-computed) / 2) var(--line-height-computed);
 
   @include mq($small-only) {
