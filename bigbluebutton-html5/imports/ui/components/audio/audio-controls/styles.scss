@@ -60,3 +60,18 @@
     box-shadow: 0 0 0 0 transparent;
   }
 }
+.audioContainer{
+  display: flex;
+  flex-direction: column;
+}
+.microCall{
+  padding-bottom: 15px;
+}
+@media screen and (max-width: 767px) {
+  .audioContainer{ 
+    flex-direction: row;
+  }
+  .microCall{
+    padding-bottom: 0;
+  }
+}

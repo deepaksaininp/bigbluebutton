@@ -765,7 +765,7 @@ Kurento.normalizeCallback = function (callback) {
     return callback;
   }
   return function (args) {
-    document.getElementById('BigBlueButton')[callback](args);
+    document.getElementById('Make My LMS')[callback](args);
   };
 };
 

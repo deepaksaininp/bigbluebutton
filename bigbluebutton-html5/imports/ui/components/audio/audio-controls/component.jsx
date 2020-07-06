@@ -75,42 +75,46 @@ class AudioControls extends PureComponent {
     }
 
     return (
-      <span className={styles.container}>
+      <span className={styles.audioContainer}>
         {showMute && isVoiceUser
           ? (
-            <Button
-              className={cx(styles.button, !talking || styles.glow, !muted || styles.btn)}
-              onClick={handleToggleMuteMicrophone}
-              disabled={disable}
-              hideLabel
-              label={muted ? intl.formatMessage(intlMessages.unmuteAudio)
-                : intl.formatMessage(intlMessages.muteAudio)}
-              aria-label={muted ? intl.formatMessage(intlMessages.unmuteAudio)
-                : intl.formatMessage(intlMessages.muteAudio)}
-              color={!muted ? 'primary' : 'default'}
-              ghost={muted}
-              icon={muted ? 'mute' : 'unmute'}
-              size="lg"
-              circle
-              accessKey={shortcuts.togglemute}
-            />
+            <div className={styles.microCall}>
+              <Button
+                className={cx(styles.button, !talking || styles.glow, !muted || styles.btn)}
+                onClick={handleToggleMuteMicrophone}
+                disabled={disable}
+                hideLabel
+                label={muted ? intl.formatMessage(intlMessages.unmuteAudio)
+                  : intl.formatMessage(intlMessages.muteAudio)}
+                aria-label={muted ? intl.formatMessage(intlMessages.unmuteAudio)
+                  : intl.formatMessage(intlMessages.muteAudio)}
+                color={!muted ? 'primary' : 'default'}
+                ghost={muted}
+                icon={muted ? 'mute' : 'unmute'}
+                size="lg"
+                circle
+                accessKey={shortcuts.togglemute}
+              />
+            </div>
           ) : null}
-        <Button
-          className={cx(styles.button, inAudio || styles.btn)}
-          onClick={inAudio ? handleLeaveAudio : handleJoinAudio}
-          disabled={disable}
-          hideLabel
-          aria-label={inAudio ? intl.formatMessage(intlMessages.leaveAudio)
-            : intl.formatMessage(intlMessages.joinAudio)}
-          label={inAudio ? intl.formatMessage(intlMessages.leaveAudio)
-            : intl.formatMessage(intlMessages.joinAudio)}
-          color={inAudio ? 'primary' : 'default'}
-          ghost={!inAudio}
-          icon={joinIcon}
-          size="lg"
-          circle
-          accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
-        />
+        <div>
+          <Button
+            className={cx(styles.button, inAudio || styles.btn)}
+            onClick={inAudio ? handleLeaveAudio : handleJoinAudio}
+            disabled={disable}
+            hideLabel
+            aria-label={inAudio ? intl.formatMessage(intlMessages.leaveAudio)
+              : intl.formatMessage(intlMessages.joinAudio)}
+            label={inAudio ? intl.formatMessage(intlMessages.leaveAudio)
+              : intl.formatMessage(intlMessages.joinAudio)}
+            color={inAudio ? 'primary' : 'default'}
+            ghost={!inAudio}
+            icon={joinIcon}
+            size="lg"
+            circle
+            accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
+          />
+        </div>
       </span>);
   }
 }

@@ -1,1 +1,1 @@
-This is where screenshots from the BigBlueButton tests will be saved. 
+This is where screenshots from the Make My LMS tests will be saved. 

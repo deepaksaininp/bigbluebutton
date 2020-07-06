@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { defineMessages, injectIntl } from 'react-intl'; 
+import { defineMessages, injectIntl } from 'react-intl';
 import { Session } from 'meteor/session';
 import { IconButton, Tooltip } from '@material-ui/core';
 import PollSharpIcon from '@material-ui/icons/PollSharp';
@@ -34,11 +34,11 @@ class UserPolls extends PureComponent {
     if (!pollIsOpen && !forcePollOpen) return null;
 
     return (
-      <Tooltip title="Polling">
+      <div className={styles.userPollingbtn}>
         <IconButton tabIndex={0} onClick={handleClickTogglePoll}>
           <PollSharpIcon style={{ color: '#fff' }} />
         </IconButton>
-      </Tooltip>
+      </div>
     );
   }
 }

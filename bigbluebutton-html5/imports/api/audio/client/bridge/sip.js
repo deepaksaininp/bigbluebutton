@@ -280,7 +280,7 @@ class SIPSession {
         register: false,
         traceSip: true,
         autostart: false,
-        userAgentString: 'BigBlueButton',
+        userAgentString: 'MakemyLMS',
         stunServers: stun,
         turnServers: turn,
         hackPlanBUnifiedPlanTranslation: isSafari,

@@ -119,8 +119,7 @@ ToolbarMenuItem.propTypes = {
     PropTypes.object,
     PropTypes.number,
   ]),
-  onItemClick: PropTypes.func.isRequired,
-  // we can have either icon from the bigbluebutton-font or our custom svg/html
+  onItemClick: PropTypes.func.isRequired, 
   // thus they are optional
   icon: PropTypes.string,
   customIcon: PropTypes.node,

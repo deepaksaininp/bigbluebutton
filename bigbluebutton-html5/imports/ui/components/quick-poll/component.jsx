@@ -48,7 +48,7 @@ class QuickPoll extends PureComponent {
                         />
                     ) : null
                 }
-                <div style={{padding: "20px 0"}}>
+                <div style={{padding: "10px 0"}}>
                     {isCaptionsAvailable
                         ? (
                             <CaptionsButtonContainer {...{ intl }} />

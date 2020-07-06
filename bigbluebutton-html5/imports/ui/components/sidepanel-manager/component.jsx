@@ -20,7 +20,9 @@ import withShortcutHelper from '/imports/ui/components/shortcut-help/service';
 import BreakoutRoomActionContainer from './../breakout-room-action/container';
 import UserPollActionContainer from './../userpoll-action/container';
 import PublicUserActionContainer from '../public-chat/container';
+import ShareNotesContainer from '../share-notes/container';
 
+import UserCaptionNoteContainer from '../user-captions-note/container';
 import DesktopShareCompContainer from './../desktop-share/container';
 import UserListService from '/imports/ui/components/user-list/service';
 import { styles } from './style';
@@ -114,10 +116,26 @@ class SidePanelManager extends Component {
                                 </Badge>
                             </IconButton>
                         </div>
-                        <div className={styles.gutter}>
+                        <div className={styles.showSubMenuBtn}>
                             <IconButton onClick={() => this.showSubMenuHandler()}>
                                 <MoreHorizIcon className={styles.whiteColor} />
                             </IconButton>
+                        </div>
+                    </div>
+                    <div className={styles.mobilemv}>
+                        <div className={styles.mobilemv_box}>
+
+                            <BreakoutRoomActionContainer />
+
+                            <UserPollActionContainer />
+                            
+                            <PublicUserActionContainer />
+                            <div className={styles.userCaption}>
+                                <UserCaptionNoteContainer />
+                            </div>
+                            <div className={styles.Sharenote}>
+                                <ShareNotesContainer />
+                            </div>
                         </div>
                     </div>
                     <div className={styles.sidepanel__bottom}>
@@ -130,7 +148,7 @@ class SidePanelManager extends Component {
                                 amIModerator={amIModerator}
                             />
                         </div>
-                        <div className={styles.gutter}>
+                        <div className={styles.settings}>
                             <SettingsDropdownContainer amIModerator={amIModerator} />
                         </div>
                     </div>
@@ -142,4 +160,3 @@ class SidePanelManager extends Component {
 
 
 export default withShortcutHelper(withModalMounter(injectIntl(SidePanelManager)), 'openOptions');;
-

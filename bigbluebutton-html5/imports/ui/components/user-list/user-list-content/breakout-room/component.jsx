@@ -4,6 +4,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import { IconButton, Tooltip } from '@material-ui/core';
 import VideoLabelIcon from '@material-ui/icons/VideoLabel';
 import { Session } from 'meteor/session';
+import { styles } from './../styles.scss';
 
 const intlMessages = defineMessages({
   breakoutTitle: {
@@ -26,11 +27,11 @@ const BreakoutRoomItem = ({
 }) => {
   if (hasBreakoutRoom) {
     return (
-      <Tooltip title="Breakout Rooms">
+      <div className={styles.breakoutroombtn}>
         <IconButton tabIndex={0} onClick={toggleBreakoutPanel} style={{ padding: 0 }}>
           <VideoLabelIcon style={{ color: '#fff' }} />
         </IconButton>
-      </Tooltip>
+      </div>
     );
   }
   return <span />;

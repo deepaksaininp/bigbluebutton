@@ -31,7 +31,7 @@
   flex-direction: row;
   justify-content: left;
   align-items: center;
-  width: 45%;
+  width: 45%; 
 }
 .right,
 .center {
@@ -43,6 +43,7 @@
 
 .right {
   flex: 0;
+  display: none;
 }
 
 .center {
@@ -127,4 +128,19 @@
 
 .logo {
   width: 230px;
+}
+
+@media screen and (max-width: 767px) {
+  .logo {
+    width: 120px;
+  }
+  .left { 
+    width: 40%; 
+  }  
+  .presentationTitle {
+    font-size: 18px; 
+  }
+  .right{
+    display: block;
+  }
 }

@@ -17,7 +17,7 @@ class Page {
     return tmp.join('/');
   }
 
-  // Join BigBlueButton meeting
+  // Join Make My LMS meeting
   async init(args) {
     this.browser = await puppeteer.launch(args);
     this.page = await this.browser.newPage();

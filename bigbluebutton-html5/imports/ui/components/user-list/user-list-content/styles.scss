@@ -166,3 +166,16 @@
 .userOption{
   right: 50px;
 }
+
+.breakoutroombtn{
+  margin: 0 11px 0;
+}
+
+@media screen and (max-width: 767px) {
+  .breakoutroombtn{
+    margin: 10px 20px 0;
+  }  
+  .userPollingbtn{
+    margin: -2px 0px 0px;
+  }  
+}

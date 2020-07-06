@@ -5,7 +5,8 @@
     flex-direction: column;
     padding: 15px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; 
+    z-index: 1;
 }
 
 .sidepanel__top, .sidepanel__middle, .sidepanel__bottom{
@@ -30,4 +31,41 @@
     position: fixed;
     right: 2%;
     bottom: 6%;
+}
+
+.settings, .showSubMenuBtn{
+    margin-bottom: 10px;
+}
+
+.mobilemv{
+    display: none;
+}
+@media screen and (max-width: 767px) {
+    .sidepanel{
+        height: 80px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: row;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+    .settings, .showSubMenuBtn{
+        display: none;
+    }
+    .sidepanel__top, .sidepanel__middle, .sidepanel__bottom{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .mobilemv{
+        display: block;
+    }
+}
+
+.mobilemv_box{
+    display: flex;
+    flex-direction: row; 
 }

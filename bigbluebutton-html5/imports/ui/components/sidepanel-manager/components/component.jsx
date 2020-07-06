@@ -31,7 +31,7 @@ export default class SubSidebar extends PureComponent {
                         </div>
                     </div>
                     <div className={styles.gutter}>
-                        <div style={{ padding: '5px 0' }} onClick={() => hideSubMenuHandler()}>
+                        <div onClick={() => hideSubMenuHandler()}>
                             <UserPollActionContainer />
                         </div>
                     </div>

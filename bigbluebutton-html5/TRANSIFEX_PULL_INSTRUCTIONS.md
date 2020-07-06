@@ -1,6 +1,6 @@
-# Localization with Transifex
+<!-- # Localization with Transifex
 
-We use Transifex for crowdsourcing for BigBlueButton Internationalization(i18n). The following steps are not a part of the typical installation and are only required for bringing the language strings in github up to date. There are two ways to pull the translation files; using the transifex.sh script or the transifex client.
+We use Transifex for crowdsourcing for Make My LMS Internationalization(i18n). The following steps are not a part of the typical installation and are only required for bringing the language strings in github up to date. There are two ways to pull the translation files; using the transifex.sh script or the transifex client.
 
 ## Using transifex.sh
 
@@ -102,4 +102,4 @@ In the event that there are a lot of translations, instead of pulling all, we ca
 
 `$ tx pull -r bigbluebutton-html5.enjson -l pt_BR`
 
-Alternatively, simply download a ZIP archive of all languages in the project from the Transifex project page and unarchive it in the `private/locales/` directory.
+Alternatively, simply download a ZIP archive of all languages in the project from the Transifex project page and unarchive it in the `private/locales/` directory. -->

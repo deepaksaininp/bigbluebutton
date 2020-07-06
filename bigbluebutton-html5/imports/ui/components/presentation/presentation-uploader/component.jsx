@@ -340,8 +340,8 @@ class PresentationUploader extends Component {
     const validExtentions = fileValidMimeTypes.map(fileValid => fileValid.extension);
     const [accepted, rejected] = _.partition(files
       .concat(files2), f => (
-      validMimes.includes(f.type) || validExtentions.includes(`.${f.name.split('.').pop()}`)
-    ));
+        validMimes.includes(f.type) || validExtentions.includes(`.${f.name.split('.').pop()}`)
+      ));
 
     const presentationsToUpload = accepted.map((file) => {
       const id = _.uniqueId(file.name);

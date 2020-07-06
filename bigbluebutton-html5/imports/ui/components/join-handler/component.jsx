@@ -113,7 +113,7 @@ class JoinHandler extends Component {
         logCode: 'joinhandler_component_clientinfo',
         extraInfo: { clientInfo },
       },
-      'Log information about the client');
+        'Log information about the client');
     };
 
     const setAuth = (resp) => {

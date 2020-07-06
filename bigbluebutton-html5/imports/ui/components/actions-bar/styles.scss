@@ -68,8 +68,9 @@
 .right {
   position: absolute;
   bottom: var(--sm-padding-x);
-  right: var(--sm-padding-x);
+  right: 0;
   left: auto;
+  bottom: 100px;
 
   [dir="rtl"] & {
     right: auto;
@@ -105,5 +106,15 @@
     box-shadow: none;
     background-color: transparent !important;
     // border-color: var(--color-white) !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    span:first-child {
+      padding: 5px;
+      font-size: 14px;
+      margin: 6px 17px 0 10px;
+    }
   }
 }

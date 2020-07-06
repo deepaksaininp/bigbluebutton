@@ -28,7 +28,13 @@
   }
 }
 .chatIcon {
-  color: #fff;
+  color: #fff; 
+  margin: 0px 0 0px -3px;
+}
+@media screen and (max-width: 767px) {
+  .chatIcon{
+    margin: 6px 0 0px 3px;
+  }
 }
 .chatListItemLink {
   display: flex;
@@ -85,4 +91,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 767px) {
+  .unreadCounerPublic{
+    top: 0;
+    right: 0;
+  }  
+  .userPollingbtn{
+    margin: -2px 0px 0px;
+  }  
 }
