@@ -26,7 +26,7 @@
 
   font-size: 1.5rem;
   padding: var(--bars-padding) var(--bars-padding) 0 var(--bars-padding);
-  height: 10rem;
+  height: 10rem; 
 }
 
 .wrapper {
@@ -223,4 +223,9 @@
   padding: var(--bars-padding);
   position: relative;
   order: 3;
+}
+
+.panelContainer{
+  margin-left: 80px;
+  background: #fff;
 }

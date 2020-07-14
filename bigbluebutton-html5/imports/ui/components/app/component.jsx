@@ -209,20 +209,22 @@ class App extends Component {
     const { openPanel, isRTL } = this.props;
 
     return (
-      <Fragment>
+      <Fragment> 
         <SidePanelManager {...{
           openPanel,
           enableResize,
           isRTL,
         }} />
-        <PanelManager
-          {...{
-            openPanel,
-            enableResize,
-            isRTL,
-          }}
-          shouldAriaHide={this.shouldAriaHide}
-        />
+        <div className={styles.panelContainer}>
+          <PanelManager
+            {...{
+              openPanel,
+              enableResize,
+              isRTL,
+            }}
+            shouldAriaHide={this.shouldAriaHide}
+          />
+        </div>
       </Fragment>
     );
   }

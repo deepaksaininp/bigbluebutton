@@ -93,14 +93,15 @@ class SidePanelManager extends Component {
                 {showSubMenu === true ? <SubSidebar hideSubMenuHandler={this.hideSubMenuHandler} /> : null}
                 <div className={styles.sidepanel}>
                     <div className={styles.sidepanel__top}>
-                        <div className={styles.gutter} onClick={() => hideSubMenuHandler()}>
-                            <DesktopShareCompContainer />
-                        </div>
+
                         <div className={styles.gutter}>
                             <JoinVideoContainer />
                         </div>
                         <div className={styles.gutter}>
                             <AudioControlsContainer />
+                        </div> 
+                        <div className={styles.gutter}>
+                            <DesktopShareCompContainer />
                         </div>
                         <div className={styles.gutter}>
                             <IconButton onClick={() => this.leaveSession()}>
@@ -128,7 +129,7 @@ class SidePanelManager extends Component {
                             <BreakoutRoomActionContainer />
 
                             <UserPollActionContainer />
-                            
+
                             <PublicUserActionContainer />
                             <div className={styles.userCaption}>
                                 <UserCaptionNoteContainer />

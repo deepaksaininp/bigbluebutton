@@ -41,9 +41,9 @@ class EndMeetingComponent extends React.PureComponent {
         className={styles.modal}
         onRequestClose={closeModal}
         hideBorder
-        title={intl.formatMessage(intlMessages.endMeetingTitle)}
       >
         <div className={styles.container}>
+          <h1 className={styles.header}>{intl.formatMessage(intlMessages.endMeetingTitle)}</h1>
           <div className={styles.description}>
             {intl.formatMessage(intlMessages.endMeetingDescription)}
           </div>

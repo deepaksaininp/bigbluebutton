@@ -23,6 +23,10 @@
   margin-bottom: var(--lg-padding-x);
 }
 
+.header{
+  color: #000; 
+}
+
 .footer {
   display:flex;
 }
@@ -41,7 +45,8 @@
   text-align: center;
   line-height: var(--line-height-base);
   color: var(--color-gray);
-  margin-bottom: var(--jumbo-padding-y)
+  margin-bottom: var(--jumbo-padding-y);
+  margin-top: 10px;
 }
 
 .modal {

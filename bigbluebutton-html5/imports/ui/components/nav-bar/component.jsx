@@ -93,7 +93,7 @@ class NavBar extends PureComponent {
       <div className={styles.navbar}>
         <div className={styles.top}>
           <div className={styles.left}>
-            <img className={styles.logo} src="https://lh3.googleusercontent.com/iCQiVi2_cFpi2Ked-hpt5lITxHcb_Bt-d68gi4fDVRMSx0fmYkhhBo6vlTQ_c5w8jWdo2aOK=w16383" />
+            <img className={styles.logo} src="/html5client/resources/images/logo.png" />
           </div>
           <div className={styles.center}>
             <h1 className={styles.presentationTitle}>{presentationTitle}</h1> 

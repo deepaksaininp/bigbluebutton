@@ -35,7 +35,7 @@ Author: Fred Dixon <ffdixon@bigbluebutton.org>
 
 <body>
 
-<p>You must have the BigBlueButton HTML5 client installed to use this API demo.</p>
+<p>You must have the Make My LMS HTML5 client installed to use this API demo.</p>
 
 <%@ include file="bbb_api.jsp"%>
 
